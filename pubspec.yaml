@@ -1,0 +1,30 @@
+name: otel_auto_route
+description: OpenTelemetry instrumentation for `package:auto_route`.
+  Re-exports `OTelGoRouterObserver` (a generic NavigatorObserver) plus
+  bundles `auto_route` as a peer for ergonomics.
+version: 0.1.0-beta.1-wip
+repository: https://github.com/dartastic/otel_auto_route
+homepage: https://dartastic.io
+
+environment:
+  sdk: ^3.0.0
+  flutter: ">=3.0.0"
+
+dependencies:
+  auto_route: ^9.0.0
+  otel_go_router: ^0.1.0
+  dartastic_opentelemetry: ^1.1.0-beta.4
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  pubspec_parse: ^1.5.0
+  pub_semver: ^2.0.0
+  dart_flutter_team_lints: ^3.5.2
+  flutter_test:
+    sdk: flutter
+
+dependency_overrides:
+  # Use the local sibling while we iterate on both packages.
+  otel_go_router:
+    path: ../otel_go_router
