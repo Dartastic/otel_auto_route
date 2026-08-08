@@ -2,7 +2,7 @@ name: otel_auto_route
 description: OpenTelemetry instrumentation for `package:auto_route`.
   An AutoRouterObserver that emits a span per stack transition AND per
   tab transition - tabbed apps do not lose views.
-version: 0.1.0
+version: 0.2.0-wip
 repository: https://github.com/dartastic/otel_auto_route
 homepage: https://dartastic.io
 
