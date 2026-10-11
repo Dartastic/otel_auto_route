@@ -2,7 +2,7 @@
 // Copyright 2025, Mindful Software LLC, All rights reserved.
 
 import 'package:auto_route/auto_route.dart';
-import 'package:dartastic_opentelemetry/dartastic_opentelemetry.dart';
+import 'package:dartastic_opentelemetry_api/dartastic_opentelemetry_api.dart';
 import 'package:flutter/widgets.dart';
 
 import 'auto_route_semantics.dart';
@@ -72,14 +72,15 @@ final class OTelAutoRouterObserver extends AutoRouterObserver {
   ///   because arguments often carry user data.
   /// - [argumentAttributeMaxLength] — cap on the arguments attribute.
   OTelAutoRouterObserver({
-    Tracer? tracer,
+    APITracer? tracer,
     String Function(String transition, Route<dynamic> route)? spanNameBuilder,
     this.recordArguments = false,
     this.argumentAttributeMaxLength = 256,
-  })  : _tracer = tracer ?? OTel.tracerProvider().getTracer('otel_auto_route'),
+  })  : _tracer =
+            tracer ?? OTelAPI.tracerProvider().getTracer('otel_auto_route'),
         _spanNameBuilder = spanNameBuilder ?? _defaultSpanName;
 
-  final Tracer _tracer;
+  final APITracer _tracer;
   final String Function(String transition, Route<dynamic> route)
       _spanNameBuilder;
 
@@ -168,7 +169,7 @@ final class OTelAutoRouterObserver extends AutoRouterObserver {
 
     final span = _tracer.startSpan(
       _spanNameBuilder(transition, route),
-      attributes: OTel.attributesFromMap(attrs),
+      attributes: OTelAPI.attributesFromMap(attrs),
     );
     span.end();
   }
@@ -191,7 +192,7 @@ final class OTelAutoRouterObserver extends AutoRouterObserver {
 
     final span = _tracer.startSpan(
       'route.$transition:$path',
-      attributes: OTel.attributesFromMap(attrs),
+      attributes: OTelAPI.attributesFromMap(attrs),
     );
     span.end();
   }
