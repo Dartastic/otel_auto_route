@@ -4,6 +4,7 @@
 
 ### Changed
 
+- README: standard header naming the instrumented library, its supported platforms and project links; pubspec description to match.
 - README: standard header naming the instrumented library, its supported platforms and project links.
 
 ## [0.2.0] - 2026-10-11
