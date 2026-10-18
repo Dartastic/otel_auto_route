@@ -2,7 +2,7 @@ name: otel_auto_route
 description: >-
   OpenTelemetry instrumentation for auto_route by Dartastic.io. Adds standard
   OpenTelemetry observability to applications that use auto_route.
-version: 0.2.1-wip
+version: 0.2.1
 repository: https://github.com/dartastic/otel_auto_route
 homepage: https://dartastic.io
 
